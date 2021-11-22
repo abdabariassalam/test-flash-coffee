@@ -2,22 +2,37 @@ package recipe
 
 import (
 	"github.com/bariasabda/test-flash-coffee/domain/entity"
+	"github.com/bariasabda/test-flash-coffee/domain/repository/agent"
 	"github.com/bariasabda/test-flash-coffee/domain/repository/recipe"
+	"github.com/bariasabda/test-flash-coffee/domain/repository/recipecategory"
+	"github.com/bariasabda/test-flash-coffee/domain/repository/recipecategoryrecipe"
 	"github.com/bariasabda/test-flash-coffee/domain/repository/users"
 )
 
 type recipeSvc struct {
-	recipe recipe.Repository
-	user   users.Repository
+	agent                agent.Repository
+	recipe               recipe.Repository
+	user                 users.Repository
+	RecipeCategory       recipecategory.Repository
+	RecipeCategoryRecipe recipecategoryrecipe.Repository
 }
 
 type RecipeSvc interface {
-	GetRecipes() (*[]entity.Recipe, error)
+	GetRecipes() (*[]entity.Recipes, error)
+	CreateRecipe(input entity.CreateRecipe) (*entity.CreateRecipe, error)
 }
 
-func New(recipeRepo recipe.Repository, userRepo users.Repository) RecipeSvc {
+func New(
+	agentRepo agent.Repository,
+	recipeRepo recipe.Repository,
+	userRepo users.Repository,
+	recipeCategoryRepo recipecategory.Repository,
+	recipeCategoryRecipeRepo recipecategoryrecipe.Repository) RecipeSvc {
 	return recipeSvc{
-		recipe: recipeRepo,
-		user:   userRepo,
+		agent:                agentRepo,
+		recipe:               recipeRepo,
+		user:                 userRepo,
+		RecipeCategory:       recipeCategoryRepo,
+		RecipeCategoryRecipe: recipeCategoryRecipeRepo,
 	}
 }

@@ -4,10 +4,10 @@ import (
 	"github.com/bariasabda/test-flash-coffee/domain/entity"
 )
 
-func (r userRepository) FindByID(id int) (*entity.User, error) {
-	var user entity.User
-	err := r.db.Find(&user).Where("id = ?", id).Error
-	if err != nil {
+func (r userRepository) FindOrCreate(name string) (*entity.User, error) {
+	user := entity.User{}
+
+	if err := r.db.Where(entity.User{Name: name}).FirstOrCreate(&user).Error; err != nil {
 		return nil, err
 	}
 

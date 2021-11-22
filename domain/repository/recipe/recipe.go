@@ -2,7 +2,7 @@ package recipe
 
 import (
 	"github.com/bariasabda/test-flash-coffee/domain/entity"
-	"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
 )
 
 type recipeRepository struct {
@@ -14,5 +14,7 @@ func New(db *gorm.DB) Repository {
 }
 
 type Repository interface {
-	FindRecipes() (*[]entity.Recipe, error)
+	FindRecipes() (*[]entity.Recipes, error)
+	Create(tx *gorm.DB, input entity.Recipe) (*entity.Recipe, error)
+	FindByNameAndDescription(name, description string) (*[]int, error)
 }

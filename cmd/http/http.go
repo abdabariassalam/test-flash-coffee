@@ -6,12 +6,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/bariasabda/test-flash-coffee/domain/repository"
 	"github.com/bariasabda/test-flash-coffee/config"
+	"github.com/bariasabda/test-flash-coffee/domain/repository"
 	"github.com/bariasabda/test-flash-coffee/domain/service"
 	"github.com/ilyakaznacheev/cleanenv"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
 func Execute() {
@@ -28,7 +28,7 @@ func Execute() {
 	if PostgresqlUrl == "" {
 		PostgresqlUrl = cfg.Postgresql.Url
 	}
-	db, err := gorm.Open(postgres.Open(PostgresqlUrl), &gorm.Config{})
+	db, err := gorm.Open("postgres",PostgresqlUrl)
 	if err != nil {
 		log.Fatalf("Tidak Konek DB Errornya : %s", err)
 	}

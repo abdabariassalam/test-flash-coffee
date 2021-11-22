@@ -11,6 +11,6 @@ type Service struct {
 
 func New(repo repository.Repository) Service {
 	return Service{
-		Recipe: recipe.New(repo.Recipe, repo.User),
+		Recipe: recipe.New(repo.Agent, repo.Recipe, repo.User, repo.RecipeCategory, repo.RecipeCategoryRecipe),
 	}
 }

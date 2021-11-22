@@ -1,18 +1,18 @@
-package users
+package recipecategory
 
 import (
 	"github.com/bariasabda/test-flash-coffee/domain/entity"
 	"github.com/jinzhu/gorm"
 )
 
-type userRepository struct {
+type recipeCategoryRepository struct {
 	db *gorm.DB
 }
 
 func New(db *gorm.DB) Repository {
-	return userRepository{db}
+	return recipeCategoryRepository{db}
 }
 
 type Repository interface {
-	FindOrCreate(name string) (*entity.User, error)
+	FindOrCreate(name string) (*entity.RecipeCategory, error)
 }
