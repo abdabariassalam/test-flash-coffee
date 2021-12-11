@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "ff6d33d0-61e1-4b47-b01f-0a8ed0fffffd",
+		"name": "flash-coffee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all recipe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/recipes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"kopi\",\r\n    \"description\": \"hitam\", \r\n    \"recipe_category\":{\r\n        \"name\": \"Chinesse Food\"\r\n    },\r\n    \"user\": {\r\n        \"name\": \"abda\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/recipes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create step",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/baria/Pictures/putih.png"
+						},
+						{
+							"key": "raw",
+							"value": "{\"step_number\": 1, \"description\": \"test\", \"timer\": 1,\"step_ingredient\":{\"recipe_id\":1,\"ingredient_id\":20, \"amount\": 1, \"unit\":\"test juga\"}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/step",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"step"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create ingredient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/baria/Pictures/putih.png"
+						},
+						{
+							"key": "raw",
+							"value": "{\"name\": \"test\",\"color\": 1,\"ingredient_category\": {\"name\": \"coba aja\", \"description\":\"ya masih coba\"}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/ingredient",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all ingredient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/recipes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
