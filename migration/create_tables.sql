@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS ingredient (
 	id serial NOT NULL,
 	"name" varchar(45) NOT NULL,
 	color int NOT NULL,
-	img varchar(45) NULL
+	img varchar(255) NULL
 );
 
 CREATE TABLE IF NOT EXISTS step (

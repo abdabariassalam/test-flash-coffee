@@ -45,3 +45,14 @@ func (r recipeRepository) FindByNameAndDescription(name, description string) (*[
 	}
 	return &Ids, nil
 }
+
+func (r recipeRepository) FindByID(id int) (*entity.Recipes, error) {
+	recipe := entity.Recipes{}
+	err := r.db.Table("recipe").
+		Select("recipe.id, recipe.name, recipe.description, users.id, users.name").
+		Joins("Join users on users.id = recipe.author_id").Scan(&recipe).Error
+	if err != nil {
+		return nil, err
+	}
+	return &recipe, nil
+}

@@ -12,5 +12,13 @@ type (
 		Postgresql struct {
 			Url string `yaml:"url"`
 		} `ymal:"postgresql"`
+
+		// AWS S3
+		AWS struct {
+			Region          string `yaml:"region"`
+			Bucket          string `yaml:"bucket"`
+			AccessKeyID     string `yaml:"access_key_id"`
+			SecretAccessKey string `yaml:"secret_access_key"`
+		} `ymal:"aws"`
 	}
 )

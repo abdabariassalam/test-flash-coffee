@@ -2,7 +2,6 @@ package recipe
 
 import (
 	"errors"
-	"fmt"
 
 	"github.com/bariasabda/test-flash-coffee/domain/entity"
 	"github.com/jinzhu/gorm"
@@ -25,7 +24,6 @@ func (s recipeSvc) CreateRecipe(input entity.CreateRecipe) (*entity.CreateRecipe
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(recipeIds)
 	recipeCategoryRecipes, err := s.RecipeCategoryRecipe.FindDuplicate(*recipecategory.Id, *recipeIds)
 	if err != nil {
 		return nil, err

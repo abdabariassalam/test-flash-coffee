@@ -19,4 +19,7 @@ func NewRouter(handler httpHandler) *Router {
 func (r *Router) routes() {
 	r.router.GET("/recipes", r.Handler.GetRecipe)
 	r.router.POST("/recipes", r.Handler.CreateRecipe)
+	r.router.GET("/ingredient", r.Handler.GetIngredients)
+	r.router.POST("/ingredient", r.Handler.CreateIngredient)
+	r.router.POST("/step", r.Handler.CreateStep)
 }

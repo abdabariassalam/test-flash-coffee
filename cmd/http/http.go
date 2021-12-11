@@ -28,12 +28,15 @@ func Execute() {
 	if PostgresqlUrl == "" {
 		PostgresqlUrl = cfg.Postgresql.Url
 	}
-	db, err := gorm.Open("postgres",PostgresqlUrl)
+	db, err := gorm.Open("postgres", PostgresqlUrl)
 	if err != nil {
 		log.Fatalf("Tidak Konek DB Errornya : %s", err)
 	}
 
-	repository := repository.New(db)
+	repository := repository.New(&repository.Args{
+		DB:  db,
+		Cfg: &cfg,
+	})
 	service := service.New(repository)
 
 	// Run

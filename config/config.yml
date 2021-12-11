@@ -4,3 +4,10 @@ base:
 
 postgresql:
   url: 'postgres://lecabdlaexaewj:cd5f23d0bd9d1cfce58b55ebd48aedf7ceeb7949cc869018c065c86fe942d587@localhost:5432/flash-coffee?sslmode=disable'
+
+aws:
+  region: "ap-southeast-1"
+  bucket: "flash-coffee"
+  access_key_id: "AKIAQRUFOONL3UDSIA3Z"
+  secret_access_key: "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"
+

@@ -17,4 +17,5 @@ type Repository interface {
 	FindRecipes() (*[]entity.Recipes, error)
 	Create(tx *gorm.DB, input entity.Recipe) (*entity.Recipe, error)
 	FindByNameAndDescription(name, description string) (*[]int, error)
+	FindByID(id int) (*entity.Recipes, error)
 }
