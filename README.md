@@ -1,9 +1,5 @@
 # Test Flash Coffee
 
-Features:
-
-- mempunyai 2 api dengan bahasa Golang
-
 ## Setup explained
 
 ### Tooling
@@ -28,34 +24,5 @@ kita bisa menjalan langsung semua app sekaligus dengan menggunakan syntax beriku
 docker-compose up --build
 ```
 
-### Get
-untuk mencoba api get articles bisa menggunkan **postman**
-
-atau menggunakan syntax curl dibawah ini
-
-```
-curl --location --request GET 'localhost:8080/articles?search=test&author=test1'
-```
-
-search dan author adalah variable optional bisa di pake atau tidak
-kalau untuk get all article hapus saja search dan author nya seperti berikut:
-
-```
-curl --location --request GET 'localhost:8080/articles'
-```
-
-### Post
-untuk mencoba api create articles bisa menggunkan **postman**
-
-atau menggunakan syntax curl dibawah ini
-
-curl --location --request POST 'localhost:8080/articles' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "author": **author**,
-    "title": **title**,
-    "body": **body**
-}'
-
-semua parameter harus ada
-dan ditambahkan penjagaan tidak boleh author dan title memiliki isi yang sama berturut-turut menghindari data duplicate
+### api collection
+untuk api collection menggunakan postman 
